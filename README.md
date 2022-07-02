@@ -8,9 +8,9 @@ live-server
 ```
 
 Start typescript compilation:
-**SHIFT + COMMAND + B - Select 'tsc: watch'z**
+**SHIFT + COMMAND + B - Select 'tsc: watch'**
 
-*Make sure you have live-server and typescript installed globally.*
+*Make sure you have live-server and typescript installed globally from NPM.*
 
 ## To build
 Go to project root and type in terminal:

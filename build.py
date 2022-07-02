@@ -3,7 +3,7 @@
 #Also make sure that no files have the same name, since they all end up in a singular directory
 
 srcFolder = "./Src" #html + css
-compiledJSFolder = "/.JS"
+compiledJSFolder = "./.JS"
 assetsFolder = "./Assets"
 
 import os
