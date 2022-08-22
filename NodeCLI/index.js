@@ -12,7 +12,7 @@ fs.writeFileSync("Src/index.html",
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
-    <script src="/Src/script.ts" defer></script>
+    <script src="/.JS/script.js" defer></script>
 </head>
 <body>
 </body>
@@ -138,7 +138,9 @@ live-server
 \`\`\`
 
 Start typescript compilation:
-**SHIFT + COMMAND + B - Select 'tsc: watch'**
+\`\`\`
+npx tsc-watch
+\`\`\`
 
 *Make sure you have live-server and typescript installed globally from NPM.*
 

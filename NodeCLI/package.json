@@ -1,5 +1,5 @@
 {
-  "name": "template",
-  "version": "1.0.0",
+  "name": "create-vanilla-template",
+  "version": "1.0.3",
   "bin": "./index.js"
 }

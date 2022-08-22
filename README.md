@@ -1,6 +1,16 @@
 # Vanilla Template
 ### A basic template to build vanilla JS projects, comes with a project structure and a build process.
 
+## To install locally:
+Download from NPM:
+```
+npm i create-vanilla-template -g
+```
+Initalise project with
+```
+create-vanilla-template
+```
+
 ## To start development:
 Go to project root and type in terminal:
 ```
@@ -8,7 +18,9 @@ live-server
 ```
 
 Start typescript compilation:
-**SHIFT + COMMAND + B - Select 'tsc: watch'**
+```
+npx tsc-watch
+```
 
 *Make sure you have live-server and typescript installed globally from NPM.*
 
