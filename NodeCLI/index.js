@@ -1,4 +1,42 @@
-#Run this to build the entire project into a single dist folder
+#!/usr/bin/env node
+
+var fs = require('fs');
+
+fs.mkdirSync("Assets"); //make folders
+fs.mkdirSync("Src");
+
+fs.writeFileSync("Src/index.html",
+`<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <script src="/Src/script.ts" defer></script>
+</head>
+<body>
+</body>
+</html>`
+);
+fs.writeFileSync("Src/script.ts",
+`console.log("Hello Template");`
+);
+
+fs.writeFileSync(".gitignore", 
+`#When adding a item to gitignore, need to remove and retrack all files in git:
+# git rm -r --cached .
+# git add .
+
+#Generated files
+/dist
+/.firebase
+
+#System Files
+.DS_Store`
+);
+
+fs.writeFileSync("build.py",
+`#Run this to build the entire project into a single dist folder
 #Make sure the latest version of the TS files are compiled to the _JS folder
 #Also make sure that no files have the same name, since they all end up in a singular directory
 
@@ -86,4 +124,52 @@ for file in filePaths:
 #Finally just copy the assests folder into the dist directory
 shutil.copytree(assetsFolder, "dist/Assets")
 
-print("Successfully built project, output is in the dist folder")
+print("Successfully built project, output is in the dist folder")`
+);
+
+fs.writeFileSync("README.md",
+`# Vanilla Template
+### A basic template to build vanilla JS projects, comes with a project structure and a build process.
+
+## To start development:
+Go to project root and type in terminal:
+\`\`\`
+live-server
+\`\`\`
+
+Start typescript compilation:
+**SHIFT + COMMAND + B - Select 'tsc: watch'**
+
+*Make sure you have live-server and typescript installed globally from NPM.*
+
+## To build
+Go to project root and type in terminal:
+\`\`\`
+python3 build.py
+\`\`\`
+
+*Make sure you have python installed, as well as the dependencies that [Build.py](build.py) requires.*
+
+## Notes
+- You must give each Src file its own unique name if they are the same extension, for example you cannot have 2 index.html.
+- This is because all the files get put into a single dist folder so if 2 files have the same name one will get overwritten.
+- To use assets you can use their absolute path relative to the project's root, it will get updated when being build for dist. 
+- Here is an example if there was an image in the assets folder and I wanted to access it from a Src file:
+\`\`\`html
+<img src="/Assets/image.png">
+\`\`\``
+);
+
+fs.writeFileSync("tsconfig.json",
+`{
+    "compilerOptions": {
+        "target": "es2022",  
+        "module": "commonjs",   
+        "outDir": ".JS",   
+        "esModuleInterop": true,   
+        "forceConsistentCasingInFileNames": true,  
+        "strict": true,   
+        "skipLibCheck": true 
+    }
+}`
+);
